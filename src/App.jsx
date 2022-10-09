@@ -1,39 +1,42 @@
-import { IconBrandFacebook, IconBrandGithubCopilot, IconLogin } from '@tabler/icons';
+// import { IconBrandFacebook, IconBrandGithubCopilot, IconLogin } from '@tabler/icons';
+// import Button from './components/Button';
+import ButtonClsx from './components/ButtonClsx';
+import Card from './components/Card';
 
-export default function App() {
+//sama kayak function dibawah
+const Title = () => (
+    <>
+        <h1>Hello World</h1>
+        <h4>Hello World</h4>
+    </>
+);
+//parent func=App
+const App = () => {
     return (
-        <div className='bg-slate-900 grid place-content-center min-h-screen'>
-            <div className='flex gap-x-2'>
-                <Button onClick={() => console.log('Register')} type='submit'>
-                    <IconBrandFacebook />
-                    Register
-                </Button>
-                <Button onClick={() => console.log('Register')} type='submit'>
-                    <IconBrandGithubCopilot />
-                    Login
-                </Button>
-                <Button
-                    className='bg-pink-600'
-                    onClick={() => console.log('Login')}
-                    type='button'
-                >
-                    <IconLogin />
-                    Log In
-                </Button>
+        <div className='bg-slate-100 text-slate-800 tracking-tight antialiased flex items-center justify-center min-h-screen'>
+            <div className='max-w-2xl w-full flex items-center gap-4'>
+                <Card>
+                    <Card.Title>Hello React</Card.Title>
+                    <Card.Body>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus iure rem doloremque optio nemo assumenda voluptate quas
+                        fugit blanditiis praesentium rerum suscipit distinctio deleniti ab ratione ipsum culpa, a soluta!
+                    </Card.Body>
+                    <Card.Footer>
+                        <ButtonClsx>Register</ButtonClsx>
+                    </Card.Footer>
+                </Card>
+                <Card>
+                    <Card.Title>Hello React</Card.Title>
+                    <Card.Body>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus iure rem doloremque optio nemo assumenda voluptate quas
+                        fugit blanditiis praesentium rerum suscipit distinctio deleniti ab ratione ipsum culpa, a soluta!
+                    </Card.Body>
+                    <Card.Footer>
+                        <ButtonClsx>Register</ButtonClsx>
+                    </Card.Footer>
+                </Card>
             </div>
         </div>
     );
-}
-
-//Component
-function Button(props) {
-    const { className='bg-blue-600', children, text } = props;
-    return (
-        <button
-            {...props}
-            className={`${className} [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-2 text-white px-4 py-2 rounded`}
-        >
-            {text || children}
-        </button>
-    );
-}
+};
+export default App;
