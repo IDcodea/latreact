@@ -1,38 +1,39 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import { IconBrandFacebook, IconBrandGithubCopilot, IconLogin } from '@tabler/icons';
 
-function App() {
-    const [count, setCount] = useState(0);
-
+export default function App() {
     return (
-        <div className='App'>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src='/vite.svg' className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://reactjs.org' target='_blank'>
-                    <img
-                        src={reactLogo}
-                        className='logo react'
-                        alt='React logo'
-                    />
-                </a>
+        <div className='bg-slate-900 grid place-content-center min-h-screen'>
+            <div className='flex gap-x-2'>
+                <Button onClick={() => console.log('Register')} type='submit'>
+                    <IconBrandFacebook />
+                    Register
+                </Button>
+                <Button onClick={() => console.log('Register')} type='submit'>
+                    <IconBrandGithubCopilot />
+                    Login
+                </Button>
+                <Button
+                    className='bg-pink-600'
+                    onClick={() => console.log('Login')}
+                    type='button'
+                >
+                    <IconLogin />
+                    Log In
+                </Button>
             </div>
-            <h1>Vite + React</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>
-                Click on the Vite and React logos to learn more
-            </p>
         </div>
     );
 }
 
-export default App;
+//Component
+function Button(props) {
+    const { className='bg-blue-600', children, text } = props;
+    return (
+        <button
+            {...props}
+            className={`${className} [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-1 flex items-center gap-2 text-white px-4 py-2 rounded`}
+        >
+            {text || children}
+        </button>
+    );
+}
